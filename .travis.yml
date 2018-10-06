@@ -4,7 +4,7 @@ services:
 before_install:
   - docker image build -t sunnyjohal/react-test -f ./client/Dockerfile.dev ./client
 script:
-  - docker container run sunnyjohal/react-test test -- --coverage
+  - docker container run sunnyjohal/react-test npm test -- --coverage
 after_success:
   - docker image build -t sunnyjohal/multi-client ./client
   - docker image build -t sunnyjohal/multi-nginx ./nginx
